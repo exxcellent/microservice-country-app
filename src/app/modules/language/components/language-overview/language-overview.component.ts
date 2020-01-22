@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LanguageService } from '../../services/language.service';
+import { Language } from '../../types/language';
 
 @Component({
   selector: 'app-language-overview',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LanguageOverviewComponent implements OnInit {
 
-  constructor() { }
+  languages: Language[] = [];
+  isLoading: boolean = true;
+  
+  constructor(private languageService: LanguageService) { }
 
   ngOnInit() {
+    this.getLanguages();
+  }
+
+  private getLanguages(): void {
+    this.languageService.getLanguages().subscribe(
+      languages => {
+        if(languages) {
+          this.languages = languages;
+        }
+        this.isLoading = false;
+      }
+    )
   }
 
 }
