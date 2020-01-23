@@ -1,1 +1,14 @@
-<p>currency-overview works!</p>
+<h1>Currency Management</h1>
+<br />
+<div *ngIf="!isLoading">
+    <app-currency-creation [existingCurrencies]="currencies" (currencyAdded)="onCurrencyAdded($event)"></app-currency-creation>
+    <br />
+    <app-currency-table [currencies]="currencies"></app-currency-table>
+</div>
+<div *ngIf="isLoading" class="row">
+    <div class="col-sm-12">
+        <div class="spinner-border text-warning" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</div>

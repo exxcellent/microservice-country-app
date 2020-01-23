@@ -11,7 +11,7 @@ import { Language } from '../../types/language';
 export class LanguageCreationComponent implements OnInit {
 
   @Input() existingLanguages: Language[];
-  @Output() languageAdded = new EventEmitter<Language[]>();
+  @Output() languageAdded = new EventEmitter<Language>();
 
   isLanguageAlreadyExisting: boolean = false;
   isSendingToBackend: boolean = false;
@@ -39,7 +39,7 @@ export class LanguageCreationComponent implements OnInit {
   }
 
   private checkIfLanguageIsExisting(language: Language): boolean {
-    let duplicates: Language[] = this.existingLanguages.filter(l => l.shortName.toLocaleLowerCase() == language.shortName.toLocaleLowerCase());
+    let duplicates: Language[] = this.existingLanguages.filter(l => l.shortName.toLowerCase() == language.shortName.toLowerCase());
     return duplicates.length > 0;
   }
 
@@ -48,7 +48,7 @@ export class LanguageCreationComponent implements OnInit {
       languages => {
         this.isSendingToBackend = false;
         if(languages) {
-          this.languageAdded.emit(languages);
+          this.languageAdded.emit(language);
           this.languageForm.reset();
         }
       }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Currency } from '../../types/currency';
 
 @Component({
   selector: 'app-currency-table',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./currency-table.component.scss']
 })
 export class CurrencyTableComponent implements OnInit {
+
+  @Input() currencies: Currency[];
 
   constructor() { }
 

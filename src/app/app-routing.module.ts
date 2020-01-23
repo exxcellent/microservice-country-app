@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  {path: 'languages', loadChildren: 'src/app/modules/language/language.module#LanguageModule'}
+  {path: 'languages', loadChildren: 'src/app/modules/language/language.module#LanguageModule'},
+  {path: 'currencies', loadChildren: 'src/app/modules/currency/currency.module#CurrencyModule'}
 ];
 
 @NgModule({
