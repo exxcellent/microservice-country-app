@@ -5,6 +5,7 @@ import { LanguageTableComponent } from './components/language-table/language-tab
 import { LanguageCreationComponent } from './components/language-creation/language-creation.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path: '', component: LanguageOverviewComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class LanguageModule { }

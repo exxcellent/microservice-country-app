@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  {path: '', loadChildren: 'src/app/modules/language/language.module#LanguageModule'}
+  {path: 'languages', loadChildren: 'src/app/modules/language/language.module#LanguageModule'}
 ];
 
 @NgModule({

@@ -1,7 +1,14 @@
-<p>language-overview works!</p>
-<ul>
-    <li *ngFor="let language of languages">
-        {{ language.name }}
-    </li>
-</ul>
-<app-language-creation></app-language-creation>
+<h1>Language Management</h1>
+<br />
+<div *ngIf="!isLoading">
+    <app-language-creation [existingLanguages]="languages" (languageAdded)="onLanguageAdded($event)"></app-language-creation>
+    <br />
+    <app-language-table [languages]="languages"></app-language-table>
+</div>
+<div *ngIf="isLoading" class="row">
+    <div class="col-sm-12">
+        <div class="spinner-border text-warning" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</div>

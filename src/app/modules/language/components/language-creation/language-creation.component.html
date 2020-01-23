@@ -1,1 +1,27 @@
-<p>language-creation works!</p>
+<div>
+    <form [formGroup]="languageForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="name">Language name</label>
+                <input type="text" class="form-control" id="name" placeholder="Name" formControlName="name"
+                    [ngClass]="{'is-invalid': languageForm.controls['name'].invalid && (languageForm.controls['name'].dirty || languageForm.controls['name'].touched), 
+                                'is-valid': languageForm.controls['name'].valid}" required>
+                <span class="invalid-feedback sub-little-text">Language name is required</span>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="shortName">Language short name</label>
+                <input type="text" class="form-control" id="shortname" placeholder="Short name" formControlName="shortName"
+                    [ngClass]="{'is-invalid': languageForm.controls['shortName'].invalid && (languageForm.controls['shortName'].dirty || languageForm.controls['shortName'].touched), 
+                                'is-valid': languageForm.controls['shortName'].valid}" required>
+                <span class="invalid-feedback sub-little-text">Language shortName is required and has 3 characters</span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!languageForm.valid || isSendingToBackend">Add language</button>
+    </form>
+    <div *ngIf="isLanguageAlreadyExisting">
+        <br />
+        <div class="alert alert-danger">
+            A language with this short name is already existing!
+        </div>
+    </div>
+</div>

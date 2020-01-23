@@ -1,1 +1,16 @@
-<p>language-table works!</p>
+<div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Short name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let language of languages">
+          <td>{{ language.name }}</td>
+          <td>{{ language.shortName }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

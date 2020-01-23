@@ -25,7 +25,6 @@ export class LanguageService {
   }
 
   public getLanguages(): Observable<Language[]> {
-    console.log(`Get languages from url ${this.languageServiceUrl}`);
     return this.httpClient.get<Language[]>(this.languageServiceUrl).pipe(catchError(this.handleError<any>(`get languages`)));
   }
 

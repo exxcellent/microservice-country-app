@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Language } from '../../types/language';
 
 @Component({
   selector: 'app-language-table',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./language-table.component.scss']
 })
 export class LanguageTableComponent implements OnInit {
+
+  @Input() languages: Language[];
 
   constructor() { }
 

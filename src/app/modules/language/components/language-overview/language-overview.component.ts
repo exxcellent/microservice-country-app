@@ -29,4 +29,8 @@ export class LanguageOverviewComponent implements OnInit {
     )
   }
 
+  private onLanguageAdded(languages: Language[]): void {
+    this.languages = languages;
+  }
+
 }
