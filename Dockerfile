@@ -1,3 +1,15 @@
+####
+# This Dockerfile is used in order to build a container that runs the country app web client.
+#
+# Build the image with:
+#
+# docker build -f Dockerfile -t country-app-frontend .
+#
+# Then run the container using:
+#
+# docker run -i --rm -p 8484:8484 country-app-frontend
+#
+###
 # create new image from base node js image
 FROM node:12
 # set the workdir
