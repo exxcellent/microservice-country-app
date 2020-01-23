@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Country } from '../../types/country';
+import { CountryService } from '../../services/country.service';
 
 @Component({
   selector: 'app-country-overview',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CountryOverviewComponent implements OnInit {
 
-  constructor() { }
+  countries: Country[] = [];
+  isLoading: boolean = true;
+
+  constructor(private countryService: CountryService) { }
 
   ngOnInit() {
+    this.getCountries();
+  }
+
+  private getCountries(): void {
+    this.countryService.getCountries().subscribe(
+      countries => {
+        if(countries) {
+          this.countries = countries;
+        }
+        this.isLoading = false;
+      }
+    )
+  }
+
+  private onCountryAdded(country: Country): void {
+    this.countries.push(country);
   }
 
 }

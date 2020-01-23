@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Country } from '../../types/country';
 
 @Component({
   selector: 'app-country-table',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./country-table.component.scss']
 })
 export class CountryTableComponent implements OnInit {
+
+  @Input() countries: Country[];
 
   constructor() { }
 

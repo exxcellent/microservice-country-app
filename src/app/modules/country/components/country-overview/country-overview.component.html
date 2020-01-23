@@ -1,1 +1,14 @@
-<p>country-overview works!</p>
+<h1>Country Management</h1>
+<br />
+<div *ngIf="!isLoading">
+    <app-country-creation [existingCountries]="countries" (countryAdded)="onCountryAdded($event)"></app-country-creation>
+    <br />
+    <app-country-table [countries]="countries"></app-country-table>
+</div>
+<div *ngIf="isLoading" class="row">
+    <div class="col-sm-12">
+        <div class="spinner-border text-warning" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</div>

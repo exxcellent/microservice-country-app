@@ -1,1 +1,28 @@
-<p>country-creation works!</p>
+<div>
+    <form [formGroup]="countryForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="name">Country name</label>
+                <input type="text" class="form-control" id="name" placeholder="Name" formControlName="name"
+                    [ngClass]="{'is-invalid': countryForm.controls['name'].invalid && (countryForm.controls['name'].dirty || countryForm.controls['name'].touched), 
+                                'is-valid': countryForm.controls['name'].valid}" required>
+                <span class="invalid-feedback sub-little-text">Country name is required</span>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="shortName">Country short name</label>
+                <input type="text" class="form-control" id="shortname" placeholder="Short name" formControlName="shortName"
+                    [ngClass]="{'is-invalid': countryForm.controls['shortName'].invalid && (countryForm.controls['shortName'].dirty || countryForm.controls['shortName'].touched), 
+                                'is-valid': countryForm.controls['shortName'].valid}" required>
+                <span class="invalid-feedback sub-little-text">Country shortName is required and has 3 characters</span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!countryForm.valid || isSendingToBackend">Add Country</button>
+    </form>
+    <div *ngIf="isCountryAlreadyExisting">
+        <br />
+        <div class="alert alert-danger">
+            A country with this short name is already existing!
+        </div>
+    </div>
+</div>
+
