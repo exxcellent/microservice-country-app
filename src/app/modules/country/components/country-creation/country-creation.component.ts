@@ -26,7 +26,7 @@ export class CountryCreationComponent implements OnInit {
   ngOnInit() {
   }
 
-  private onSubmit(): void {
+  onSubmit(): void {
     this.isCountryAlreadyExisting = false;
     this.isSendingToBackend = true; 
     let countryFromForm: Country = new Country(this.countryForm.value.name, this.countryForm.value.shortName);

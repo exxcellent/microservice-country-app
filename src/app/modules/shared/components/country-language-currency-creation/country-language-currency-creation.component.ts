@@ -92,7 +92,7 @@ export class CountryLanguageCurrencyCreationComponent implements OnInit {
     )
   }
 
-  private onSubmit(): void {
+  onSubmit(): void {
     this.isSendingToBackend = true;
     const countryLanguageCurrencyMapping: CountryWithLanguageAndCurrency = new CountryWithLanguageAndCurrency(this.countryLanguageCurrencyForm.value.country, this.countryLanguageCurrencyForm.value.language, this.countryLanguageCurrencyForm.value.currency);
     this.countryLanguageCurrencyService.createCountryWithLanguageAndCurrency(countryLanguageCurrencyMapping).subscribe(

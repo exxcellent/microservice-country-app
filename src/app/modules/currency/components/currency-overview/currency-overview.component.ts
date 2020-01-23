@@ -29,7 +29,7 @@ export class CurrencyOverviewComponent implements OnInit {
     )
   }
 
-  private onCurrencyAdded(currency: Currency): void {
+  onCurrencyAdded(currency: Currency): void {
     this.currencies.push(currency);
   }
 }

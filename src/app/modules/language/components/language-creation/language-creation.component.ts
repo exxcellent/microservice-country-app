@@ -26,7 +26,7 @@ export class LanguageCreationComponent implements OnInit {
   ngOnInit() {
   }
 
-  private onSubmit(): void {
+  onSubmit(): void {
     this.isLanguageAlreadyExisting = false;
     this.isSendingToBackend = true; 
     let languageFromForm: Language = new Language(this.languageForm.value.shortName, this.languageForm.value.name);

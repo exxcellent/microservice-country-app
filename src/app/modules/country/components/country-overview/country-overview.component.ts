@@ -29,7 +29,7 @@ export class CountryOverviewComponent implements OnInit {
     )
   }
 
-  private onCountryAdded(country: Country): void {
+  onCountryAdded(country: Country): void {
     this.countries.push(country);
   }
 

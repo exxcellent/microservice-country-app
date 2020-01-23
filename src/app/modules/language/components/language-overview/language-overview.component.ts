@@ -29,7 +29,7 @@ export class LanguageOverviewComponent implements OnInit {
     )
   }
 
-  private onLanguageAdded(language: Language): void {
+  onLanguageAdded(language: Language): void {
     this.languages.push(language);
   }
 

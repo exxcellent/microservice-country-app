@@ -26,7 +26,7 @@ export class CurrencyCreationComponent implements OnInit {
   ngOnInit() {
   }
 
-  private onSubmit(): void {
+  onSubmit(): void {
     this.isCurrencyAlreadyExisting = false;
     this.isSendingToBackend = true; 
     let currencyFromForm: Currency = new Currency(this.currencyForm.value.name, this.currencyForm.value.shortName);

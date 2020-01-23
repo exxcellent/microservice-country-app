@@ -32,7 +32,7 @@ export class CountryLanguageCurrencyOverviewComponent implements OnInit {
     )
   }
 
-  private onCountryAdded(countryWithLanguageAndCurrency: CountryWithLanguageAndCurrency): void {
+  onCountryAdded(countryWithLanguageAndCurrency: CountryWithLanguageAndCurrency): void {
     this.countriesWithLanguageAndCurrency.push(countryWithLanguageAndCurrency);
   }
 
