@@ -4,7 +4,6 @@ import { CurrencyOverviewComponent } from './components/currency-overview/curren
 import { CurrencyTableComponent } from './components/currency-table/currency-table.component';
 import { CurrencyCreationComponent } from './components/currency-creation/currency-creation.component';
 import { Routes, RouterModule } from '@angular/router';
-import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
@@ -16,7 +15,6 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    SharedModule,
     ReactiveFormsModule
   ]
 })

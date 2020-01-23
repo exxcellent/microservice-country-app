@@ -1,1 +1,40 @@
-<p>country-language-currency-creation works!</p>
+<div *ngIf="!areCountriesLoading && !areCurrenciesLoading && !areLanguagesLoading && areIncompleteCountriesExisting">
+    <form [formGroup]="countryLanguageCurrencyForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="country">Country</label>
+            <select id="country" class="form-control" formControlName="country">
+              <option *ngFor="let country of countries" [ngValue]="country">{{ country.name }}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="language">Language</label>
+            <select id="language" class="form-control" formControlName="language">
+              <option *ngFor="let language of languages" [ngValue]="language">{{ language.name }}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="currency">Currency</label>
+            <select id="currency" class="form-control" formControlName="currency">
+              <option *ngFor="let currency of currencies" [ngValue]="currency">{{ currency.name }}</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!countryLanguageCurrencyForm.valid">Add mapping</button>
+      </form>
+</div>
+
+<div *ngIf="areCountriesLoading || areCurrenciesLoading || areLanguagesLoading" class="row">
+    <div class="col-sm-12">
+        <div class="spinner-border text-warning" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!areIncompleteCountriesExisting">
+    <br />
+    <div class="alert alert-primary">
+        No incomplete countries are existing (all countries have a defined language and currency). Add a new country to create a mapping.
+    </div>
+</div>

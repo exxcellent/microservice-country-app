@@ -1,6 +1,4 @@
-import { TransportObject } from '../../shared/models/transport-object.interface';
-
-export class Country implements TransportObject{
+export class Country {
     constructor(name: string, shortName: string) {
         this.name = name;
         this.shortName = shortName;

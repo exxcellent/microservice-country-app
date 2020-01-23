@@ -1,1 +1,18 @@
-<p>country-language-currency-table works!</p>
+<div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Country</th>
+          <th>Language</th>
+          <th>Currency</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let country of countriesWithLanguageAndCurrency">
+          <td>{{ country.country.name }}</td>
+          <td>{{ country.language.name }}</td>
+          <td>{{ country.currency.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>

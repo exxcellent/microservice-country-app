@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { CountryWithLanguageAndCurrency } from '../../types/country-with-language-and-currency';
 
 @Component({
   selector: 'app-country-language-currency-table',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./country-language-currency-table.component.scss']
 })
 export class CountryLanguageCurrencyTableComponent implements OnInit {
+
+  @Input() countriesWithLanguageAndCurrency: CountryWithLanguageAndCurrency[];
 
   constructor() { }
 

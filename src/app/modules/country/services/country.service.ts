@@ -3,7 +3,6 @@ import { Country } from '../types/country';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable, of } from 'rxjs';
-import { Language } from '../../language/types/language';
 import { catchError } from 'rxjs/operators';
 
 const servicesSubUrl = "api/v1/countries";
@@ -25,7 +24,7 @@ export class CountryService {
     this.countryServiceUrl = `${environment.countryServiceUrl}/${servicesSubUrl}`;
   }
 
-  public getCountries(): Observable<Language[]> {
+  public getCountries(): Observable<Country[]> {
     return this.httpClient.get<Country[]>(this.countryServiceUrl).pipe(catchError(this.handleError<any>(`get countries`)));
   }
 

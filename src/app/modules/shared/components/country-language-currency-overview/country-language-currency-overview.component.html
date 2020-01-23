@@ -1,1 +1,14 @@
-<p>country-language-currency-overview works!</p>
+<h1>Countries with their language and currency</h1>
+<br />
+<div *ngIf="!areCountriesWithLanguageAndCurrencyLoading">
+    <app-country-language-currency-creation [existingCountries]="existingCompleteCountries" (countryAdded)="onCountryAdded($event)"></app-country-language-currency-creation>
+    <br />
+    <app-country-language-currency-table [countriesWithLanguageAndCurrency]="countriesWithLanguageAndCurrency"></app-country-language-currency-table>
+</div>
+<div *ngIf="areCountriesWithLanguageAndCurrencyLoading" class="row">
+    <div class="col-sm-12">
+        <div class="spinner-border text-warning" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</div>

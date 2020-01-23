@@ -4,7 +4,6 @@ import { LanguageOverviewComponent } from './components/language-overview/langua
 import { LanguageTableComponent } from './components/language-table/language-table.component';
 import { LanguageCreationComponent } from './components/language-creation/language-creation.component';
 import { RouterModule, Routes } from '@angular/router';
-import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
@@ -16,7 +15,6 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    SharedModule,
     ReactiveFormsModule
   ]
 })
