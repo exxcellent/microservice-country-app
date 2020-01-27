@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  countryServiceUrl: "http://localhost:8080",
-  currencyServiceUrl: "http://localhost:8081",
-  languageServiceUrl: "http://localhost:8082"
+  countryServiceUrl: "http://country-svc-service.cps:8080",
+  currencyServiceUrl: "http://currency-svc-service.cps:8081",
+  languageServiceUrl: "http://language-svc-service.cps:8082"
 };
