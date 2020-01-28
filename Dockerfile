@@ -7,11 +7,11 @@
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8484:8484 country-app-frontend
+# docker run -i --rm --env COUNTRY_SERVICE_URL="http://url-to-country:8080" [... more envs] -p 80:80 country-app-frontend
 #
 ###
 # create new image from base node js image
-FROM node:12
+FROM node:12 as builder
 # set the workdir
 WORKDIR /usr/src/app
 # copy project files into workdir
@@ -20,15 +20,9 @@ COPY . .
 RUN npm install
 # build the productive angular application
 RUN npm run build-prod
-# install http server
-RUN npm install -g http-server
-# create a new directory
-RUN mkdir -p /usr/src/app/web
-# copy angular application source files
-RUN cp -a /usr/src/app/dist/country-app/. /usr/src/app/web
-# set a new workdir
-WORKDIR /usr/src/app/web
-# open port 8484
-EXPOSE 8484
-# start http server without caching
-CMD ["http-server", "/usr/src/app/web", "-c-1", "-p8484"]
+# use nginx as web server
+FROM nginx:alpine
+# Copy the built files from the builder
+COPY --from=builder /usr/src/app/dist/country-app/. /usr/share/nginx/html 
+# When the container starts, replace the env.js with values from environment variables
+CMD ["/bin/sh",  "-c",  "envsubst < /usr/share/nginx/html/assets/env.template.js > /usr/share/nginx/html/assets/env.js && exec nginx -g 'daemon off;'"]
