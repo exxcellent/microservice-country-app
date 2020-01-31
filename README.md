@@ -1,26 +1,16 @@
-# CountryApp
+# Country App Service
+
+This service is the web client used for a showcase for a microservice architecture.
+The backend services are [country-service](https://github.com/exxcellent/microservice-country-service), [language-service](https://github.com/exxcellent/microservice-language-service) and [currency-service](https://github.com/exxcellent/microservice-currency-service). The showcase is part of a guest lecture at the University Stuttgart. The documents to the lecture can be found [here](https://github.com/exxcellent/microservices-kubernetes-docs).
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
 
-## Development server
+## Running the application in dev mode
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+You can run your application in dev mode that enables live coding using:
+```
+ng serve
+```
 
 ## Further help
 
